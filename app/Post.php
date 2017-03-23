@@ -29,7 +29,7 @@ class Post extends Model
     }
 
     public static function top(){
-    	$posts  = DB::table('post')->join('categories','post.id_cat','=','categories.id')->select('post.*','categories.name as categoria','categories.slug as CatSlug')->where('post.recomendado','like',true)->get();
+    	$posts  = DB::table('post')->join('categories','post.id_cat','=','categories.id')->select('post.*','categories.name as categoria','categories.slug as CatSlug')->where('post.recomendado','=',true)->get();
 
     	return $posts;
     }

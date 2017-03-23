@@ -135,6 +135,31 @@ class AdminController extends Controller
         Flashy::info('Usuario editado correctamente');
         return redirect('admin');
     }
+    
+    public function updateProfile(){
+        $this->validate($request,['name'=>['required','min:3'],'email'=>['required',Rule::unique('users')->ignore($id)]]);
+        $user = User::find($id);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        
+
+        if(empty($request->password)){
+            $user->password = $user->password;
+        }else{
+            $user->password = bcrypt($request->password);
+        }
+
+        if($request->file('image')==null){
+            $user->path = $user->path;
+        }else{
+            $user->path = $request->file('image')->store('users');
+        }
+
+        $user->save();
+        Flashy::info('Usuario editado correctamente');
+        return redirect('admin');
+    }
 
     /**
      * Remove the specified resource from storage.
