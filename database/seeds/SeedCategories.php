@@ -14,11 +14,11 @@ class SeedCategories extends Seeder
     	DB::table('categories')->delete();
         DB::table('categories')->insert(
         	[
-	        	['name'=>'Aventura'],
-	        	['name'=>'Terror'],
-	        	['name'=>'Suspenso'],
-	        	['name'=>'accion'],
-	        	['name'=>'infantil'],
+	        	['name'=>'Aventura','slug'=>'Aventura'],
+	        	['name'=>'Terror','slug'=>'Terror'],
+	        	['name'=>'Suspenso','slug'=>'Suspenso'],
+	        	['name'=>'accion','slug'=>'accion'],
+	        	['name'=>'infantil','slug'=>'infantil'],
         	]
         	);
         }
