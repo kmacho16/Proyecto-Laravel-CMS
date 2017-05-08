@@ -11,6 +11,7 @@
       {!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingrese su Email aqui'])!!}
 
       {!!Form::select('id_rol',$roles,null,['class'=>'form-control','placeholder'=>'Seleccione rol de su usuario'])!!}
+     {{ $miRol }}
       
       {!!Form::file('image')!!}
 

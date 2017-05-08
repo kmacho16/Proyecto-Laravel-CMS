@@ -18,7 +18,7 @@ class FrontController extends Controller
     }
     
     public function home(){
-    	$posts = Post::orderBy('id','DESC')->paginate(6);
+    	$posts = Post::select('*')->where('id','>',1)->orderBy('created_at')->paginate(6);//Post::orderBy('created_at')->paginate(6);
         $categorias = Cats::catsRadom(4);
         $nomCategoria= Cats::catNameRandom();
         $postByCat = Post::PostByRandom($nomCategoria[0]->name);

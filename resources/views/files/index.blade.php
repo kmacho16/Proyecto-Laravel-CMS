@@ -16,7 +16,7 @@
 			<td>{{ $file->name }}</td>
 			<td>{{ $file->type }}</td>
 			<td>{{ url('/uploads').'/'.$file->path }}</td>
-			<td>
+			<td><
 				{{ link_to_action('FilesController@destroy',$title = "Eliminar",$parameters = $file->id) }}
 			</td>
 		</tr>

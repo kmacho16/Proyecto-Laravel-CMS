@@ -48,7 +48,8 @@ class AdminController extends Controller
     public function create()
     {
         $roles = DB::table('roles')->pluck('name','id');
-        return view('admin.create',['roles'=>$roles]);
+        $miRol = DB::table('roles')->select('name','id')->get();
+        return view('admin.create',['roles'=>$roles,'miRol'=>$miRol]);
     }
 
     /**
